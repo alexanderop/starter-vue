@@ -6,7 +6,7 @@ on:
       - main # or master, depending on your default branch name
 
 permissions:
-  contents: write # This is important! It gives the workflow permission to write to your repository
+  contents: write
 
 jobs:
   deploy:
@@ -31,4 +31,8 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist # Assuming your build output is in the dist directory 
+          publish_dir: ./dist
+          force_orphan: true
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          commit_message: 'Deploy to GitHub Pages'

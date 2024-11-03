@@ -3,7 +3,7 @@ import vue from '@vitejs/plugin-vue'
 import VueRouter from 'unplugin-vue-router/vite'
 import { defineConfig } from 'vite'
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
   plugins: [
     VueRouter({
       /* options */
@@ -15,5 +15,5 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
-  base: import.meta.env.MODE === 'production' ? '/starter-vue/' : '/',
-})
+  base: command === 'build' ? '/starter-vue/' : '/',
+}))

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
+import FeatureCard from './FeatureCard.vue'
 
 interface Feature {
   title: string
@@ -107,27 +108,11 @@ const stats = [
           Core Features
         </h2>
         <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-          <div
-            v-for="feature in mainFeatures" :key="feature.title"
-            class="relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-gray-700"
-          >
-            <div class="space-y-4">
-              <div class="flex items-center space-x-3">
-                <Icon
-                  :icon="feature.icon"
-                  class="h-6 w-6" :class="[feature.color]"
-                  width="24"
-                  height="24"
-                />
-                <h3 class="text-lg font-medium text-gray-900 dark:text-white">
-                  {{ feature.title }}
-                </h3>
-              </div>
-              <p class="text-sm text-gray-500 dark:text-gray-400">
-                {{ feature.description }}
-              </p>
-            </div>
-          </div>
+          <FeatureCard
+            v-for="feature in mainFeatures"
+            :key="feature.title"
+            v-bind="feature"
+          />
         </div>
       </div>
 
@@ -137,27 +122,11 @@ const stats = [
           Developer Tools
         </h2>
         <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-          <div
-            v-for="feature in toolingFeatures" :key="feature.title"
-            class="relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-gray-700"
-          >
-            <div class="space-y-4">
-              <div class="flex items-center space-x-3">
-                <Icon
-                  :icon="feature.icon"
-                  class="h-6 w-6" :class="[feature.color]"
-                  width="24"
-                  height="24"
-                />
-                <h3 class="text-lg font-medium text-gray-900 dark:text-white">
-                  {{ feature.title }}
-                </h3>
-              </div>
-              <p class="text-sm text-gray-500 dark:text-gray-400">
-                {{ feature.description }}
-              </p>
-            </div>
-          </div>
+          <FeatureCard
+            v-for="feature in toolingFeatures"
+            :key="feature.title"
+            v-bind="feature"
+          />
         </div>
       </div>
 

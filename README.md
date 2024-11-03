@@ -25,17 +25,20 @@ A modern Vue.js starter template with TypeScript, Pinia, Vue Router, TailwindCSS
 
 1. Use this template by clicking the "Use this template" button above
 2. Clone your new repository:
+
    ```bash
    git clone https://github.com/your-username/your-repo-name.git
    cd your-repo-name
    ```
 
 3. Install dependencies:
+
    ```bash
    npm install
    ```
 
 4. Start the development server:
+
    ```bash
    npm run dev
    ```
@@ -74,6 +77,7 @@ A modern Vue.js starter template with TypeScript, Pinia, Vue Router, TailwindCSS
 ## TypeScript Support
 
 This template is fully typed with TypeScript. Configuration files can be found in:
+
 - `tsconfig.json`
 - `tsconfig.node.json`
 - `tsconfig.app.json`
@@ -81,13 +85,17 @@ This template is fully typed with TypeScript. Configuration files can be found i
 ## Testing
 
 ### Unit Tests
+
 Unit tests are powered by Vitest. Run them with:
+
 ```bash
 npm run test:unit
 ```
 
 ### E2E Tests
+
 End-to-end tests use Playwright. Run them with:
+
 ```bash
 npm run test:e2e
 ```
@@ -101,6 +109,7 @@ This template uses [@antfu/eslint-config](https://github.com/antfu/eslint-config
 ### TailwindCSS
 
 Customize your TailwindCSS configuration in `tailwind.config.js`:
+
 ```js
 /** @type {import('tailwindcss').Config} */
 module.exports = {

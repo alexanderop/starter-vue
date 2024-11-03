@@ -1,8 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    "./index.html",
-    "./src/**/*.{vue,js,ts,jsx,tsx}",
+    './index.html',
+    './src/**/*.{vue,js,ts,jsx,tsx}',
   ],
   darkMode: 'class',
   theme: {
@@ -19,10 +19,9 @@ export default {
           700: '#15803d',
           800: '#166534',
           900: '#14532d',
-        }
-      }
+        },
+      },
     },
   },
   plugins: [],
 }
-

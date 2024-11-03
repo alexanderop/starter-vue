@@ -6,12 +6,13 @@
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
+    "build:gh-pages": "vite build --base=./",
     "preview": "vite preview",
     "lint": "eslint --fix .",
     "test:unit": "vitest",
     "test:e2e": "playwright test",
     "build-only": "vite build",
-    "type-check": "vue-tsc --build --force"
+    "type-check": "vue-tsc --noEmit"
   },
   "dependencies": {
     "@iconify/vue": "^4.1.2",

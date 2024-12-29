@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Icon } from '@iconify/vue'
 
 interface Props {
@@ -12,8 +13,8 @@ defineProps<Props>()
 </script>
 
 <template>
-  <div class="relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-gray-700">
-    <div class="space-y-4">
+  <Card class="hover:shadow-md transition-all duration-300">
+    <CardHeader>
       <div class="flex items-center space-x-3">
         <Icon
           :icon="icon"
@@ -22,13 +23,13 @@ defineProps<Props>()
           width="24"
           height="24"
         />
-        <h3 class="text-lg font-medium text-gray-900 dark:text-white">
+        <CardTitle class="text-lg">
           {{ title }}
-        </h3>
+        </CardTitle>
       </div>
-      <p class="text-sm text-gray-500 dark:text-gray-400">
+      <CardDescription>
         {{ description }}
-      </p>
-    </div>
-  </div>
+      </CardDescription>
+    </CardHeader>
+  </Card>
 </template>

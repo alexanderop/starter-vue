@@ -1,6 +1,6 @@
 # Vue.js Starter Template
 
-A modern Vue.js starter template with TypeScript, Pinia, Vue Router, TailwindCSS, and comprehensive testing setup. This template provides a robust foundation for building scalable Vue.js applications using the latest best practices.
+A modern Vue.js starter template with TypeScript, Pinia, Vue Router, TailwindCSS, Shadcn-Vue, and comprehensive testing setup. This template provides a robust foundation for building scalable Vue.js applications using the latest best practices.
 
 ## Features
 
@@ -10,6 +10,7 @@ A modern Vue.js starter template with TypeScript, Pinia, Vue Router, TailwindCSS
 - 📦 [Pinia](https://pinia.vuejs.org/) for state management
 - 🛣️ [Vue Router](https://router.vuejs.org/) with automatic route generation
 - 🎨 [TailwindCSS 3](https://tailwindcss.com/) for utility-first styling
+- 💅 [Shadcn-Vue](https://www.shadcn-vue.com/) for beautiful, accessible components
 - ✅ Testing Setup:
   - [Vitest](https://vitest.dev/) for unit testing
   - [Playwright](https://playwright.dev/) for end-to-end testing
@@ -64,6 +65,7 @@ A modern Vue.js starter template with TypeScript, Pinia, Vue Router, TailwindCSS
 ├── src/
 │   ├── assets/       # Project assets
 │   ├── components/   # Vue components
+│   │   └── ui/      # Shadcn-Vue components
 │   ├── composables/  # Composable functions
 │   ├── layouts/      # Layout components
 │   ├── pages/        # Route pages
@@ -106,22 +108,76 @@ This template uses [@antfu/eslint-config](https://github.com/antfu/eslint-config
 
 ## Customization
 
-### TailwindCSS
+### TailwindCSS and Shadcn
 
-Customize your TailwindCSS configuration in `tailwind.config.js`:
+Customize your TailwindCSS configuration in `tailwind.config.js`. This configuration includes the necessary setup for Shadcn-Vue components:
 
 ```js
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./src/**/*.{vue,js,ts}'],
+  darkMode: ['class'],
+  content: [
+    './src/**/*.{vue,js,ts}',
+    './components/**/*.{vue,js,ts}',
+  ],
   theme: {
+    container: {
+      center: true,
+      padding: '2rem',
+      screens: {
+        '2xl': '1400px',
+      },
+    },
     extend: {
-      // Add your customizations here
+      colors: {
+        border: 'hsl(var(--border))',
+        input: 'hsl(var(--input))',
+        ring: 'hsl(var(--ring))',
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
+        primary: {
+          DEFAULT: 'hsl(var(--primary))',
+          foreground: 'hsl(var(--primary-foreground))',
+        },
+        secondary: {
+          DEFAULT: 'hsl(var(--secondary))',
+          foreground: 'hsl(var(--secondary-foreground))',
+        },
+        // ... other color tokens
+      },
     },
   },
-  plugins: [],
+  plugins: [require('tailwindcss-animate')],
 }
 ```
+
+Note: Shadcn-Vue uses CSS variables for colors with HSL values. Instead of using traditional Tailwind color scales (like `text-primary-600`), use the semantic color tokens provided (like `text-primary` or `text-secondary`).
+
+### CSS Variables
+
+The theme uses CSS variables for colors. These are defined in your CSS using HSL values:
+
+```css
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    /* ... other color variables */
+  }
+}
+```
+
+### Shadcn-Vue Components
+
+Add new Shadcn-Vue components using the CLI:
+
+```bash
+npx shadcn-vue@latest add button
+```
+
+Components will be added to the `src/components/ui` directory. Customize their styles and behavior by modifying their source files directly.
 
 ### Vite Configuration
 

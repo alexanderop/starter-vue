@@ -15,7 +15,7 @@
     "generate-pwa-assets": "pwa-assets-generator --preset minimal-2023 public/pwa-icon.svg"
   },
   "dependencies": {
-    "@iconify/vue": "^4.1.2",
+    "@iconify/vue": "^4.3.0",
     "@vueuse/core": "^12.2.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
